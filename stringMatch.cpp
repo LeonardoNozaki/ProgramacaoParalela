@@ -1,6 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
-
+aa
 int main () {
   string haystack, needle, auxRead;
 
