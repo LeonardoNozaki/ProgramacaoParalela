@@ -1,4 +1,5 @@
 #include <bits/stdc++.h>
+#include <chrono>
 using namespace std;
 
 int main () {
@@ -15,19 +16,11 @@ int main () {
   int i = 0;
   queue<int> q;
 
-  for(i = 0; i < lenHaystack; i++) {
-    haystack[i] = tolower(haystack[i]);
-  }
-  for(i = 0; i < lenNeedle; i++) {
-    needle[i] = tolower(needle[i]);
-  }
-
-  cout<<needle<<" "<<haystack<<endl;
-  cout<<lenNeedle<<" "<<lenHaystack<<endl;
+  auto inicio = chrono::high_resolution_clock::now();
 
   for(i = 0; i < lenHaystack; i++) { 
 	  int j = 0;
-		while (j < lenNeedle && haystack[i + j] == needle[j]) {
+		while ( j < lenNeedle && (tolower(haystack[i + j]) == tolower(needle[j])) ) {
 			j++;
 		}
 		if (j == lenNeedle) {
@@ -35,6 +28,12 @@ int main () {
 		}
 	}
 
-  cout<<q.size()<<endl;
+  auto resultado = chrono::high_resolution_clock::now() - inicio;
+	int microseconds = chrono::duration_cast<std::chrono::microseconds>(resultado).count();
+
+	cout<<"Comprimento do texto de entrada: "<<lenHaystack<<endl;
+  cout<<"Comprimento do texto de busca: "<<lenNeedle<<endl;
+  cout<<"Duração do for-loop: "<<microseconds<<"us"<<endl;
+  cout<<"Quantidade de string match: "<<q.size()<<endl;
   return 0;
 }
