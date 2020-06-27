@@ -37,7 +37,7 @@ int main () {
   #pragma omp parallel for
   for(i = 0; i < lenHaystack; i++) { 
     int j = 0;
-    while ( j < lenNeedle && (tolower(haystack[i + j]) == tolower(needle[j])) ) {
+    while ( i + j < lenHaystack && j < lenNeedle && (tolower(haystack[i + j]) == tolower(needle[j])) ) {
       j++;
     }
     if (j == lenNeedle) {
