@@ -56,7 +56,7 @@ int main () {
   cout<<endl<<"Resultados:"<<endl;
   cout<<"Comprimento do texto de entrada: "<<lenHaystack<<endl;
   cout<<"Comprimento do texto de busca: "<<lenNeedle<<endl;
-  cout<<"Duração do for-loop: "<<microseconds<<"us"<<endl;
+  cout<<"Duração do for-loop (em microsegundos): "<<microseconds<<endl;
   cout<<"Quantidade de string match: "<<q.size()<<endl;
   return 0;
 }
