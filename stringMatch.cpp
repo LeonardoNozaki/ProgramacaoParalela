@@ -11,8 +11,12 @@ int main () {
   getline(cin, needle);
   cout<<"Digite o nome do arquivo que contem o texto de entrada: ";
   getline(cin, auxRead);
-  cout<<"Digite o número de threads que deseja utilizar nesta execução: ";
+  cout<<"Digite a quantidade de threads que deseja utilizar nesta execução: ";
   cin>>numThreads;
+  while (numThreads < 1) {
+    cout<<"Digite uma quantidade de threads válida: ";
+    cin>>numThreads;
+  }
   omp_set_num_threads(numThreads);
 
   ifstream file(auxRead);
